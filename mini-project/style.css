@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f0f2f5;
+}
+
+#container {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    grid-template-areas:
+        "notes tasks"
+        "weather tasks"
+        "clock tasks";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    gap: 10px;
+}
+
+.quadrant {
+    border-radius: 5px;
+    padding: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.top-left {
+    grid-area: notes;
+}
+
+.top-right {
+    grid-area: tasks;
+}
+
+.bottom-left {
+    grid-area: weather;
+}
+
+.bottom-right {
+    grid-area: clock;
+}
+/*            notes section              */
+#notes-section {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    overflow: auto; 
+    box-sizing: border-box;
+}
+
+.notesBox {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 2px;
+}
+
+textarea {
+    border-radius: 5px;
+    border: 2px solid #8ba9c4;
+    width: 100%;
+    box-sizing: border-box; 
+    resize: none; 
+    height: 80px; 
+}
+
+
+/*                Weather section              */
+#weather-section {
+    background-color: #e3f2fd;
+}
+
+#weather-container {
+    display: flex; 
+    align-items: center; 
+    padding-bottom: 5px;
+    height: 15px;
+}
+
+#weather-container h3 {
+    margin-right: 10px; 
+}
+
+#weather-container p {
+    margin: 0 5px;
+}
+
+
+
+/*                Clock section           */
+#clock {
+    border: 1px solid #ddd;
+}
+
+/*                datetime section        */
+
+.datetime {
+    color: #fff;
+    background: #10101e;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.date, .time {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 0 10px;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+}
+
+.time span {
+    margin: 0 6px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+.time span:last-child {
+    background: none;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: none;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+
+
+/*              Task list           */
+#ulTasks {
+    width: 100%;
+    min-height: 100px;
+}
+
+.list-group-item {
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+/*                     Button                */
+#myBtn, .buttonHeading {
+    background-color: #227ece;
+    color: #fff;
+    padding: 6px 11px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.buttonHeading:hover {
+    background-color: #3c8bd1;
+}
+
+#myBtn:hover {
+    background-color: #3686cc;
+}
+
+hr.my-4 {
+    margin: 10px 0;
+}
