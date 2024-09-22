@@ -56,23 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Task-related functions
-    function showTasks() {
-        let tasks = localStorage.getItem('tasks');
-        let tasksObj = tasks ? JSON.parse(tasks) : [];
-        let html = "";
-
-        tasksObj.forEach(function(task, index) {
-            html += `<li class="list-group-item">
-                ${task}
-                <button class="btn btn-danger btn-sm float-right" onclick="deleteTask(${index})">Delete</button>
-            </li>`;
-        });
-
-        document.getElementById('ulTasks').innerHTML = tasksObj.length ? html : 'No tasks to show.';
-        console.log("Tasks displayed.");
-    }
-
-    document.getElementById('btnAdd').addEventListener('click', function() {
+     // Adding a new task
+     document.getElementById('btnAdd').addEventListener('click', function() {
         let taskInput = document.getElementById('inpNewTask');
         let taskValue = taskInput.value.trim();
 
@@ -86,17 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         taskInput.value = "";
         showTasks();
-        toggleButtons();
         console.log("Task added.");
     });
 
+    // Reset tasks
     document.getElementById('btnReset').addEventListener('click', function() {
         localStorage.removeItem('tasks');
         showTasks();
-        toggleButtons();
         console.log("Tasks reset.");
     });
 
+    // Sort tasks
     document.getElementById('btnSort').addEventListener('click', function() {
         let tasks = localStorage.getItem('tasks');
         if (!tasks) return;
@@ -106,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('tasks', JSON.stringify(tasksObj));
 
         showTasks();
-        toggleButtons();
         console.log("Tasks sorted.");
     });
 
+    // Cleanup tasks
     document.getElementById('btnCleanup').addEventListener('click', function() {
         let tasks = localStorage.getItem('tasks');
         if (!tasks) return;
@@ -119,10 +104,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('tasks', JSON.stringify(tasksObj));
 
         showTasks();
-        toggleButtons();
         console.log("Tasks cleaned up.");
     });
 
+    // Delete a task
     window.deleteTask = function(index) {
         let tasks = localStorage.getItem('tasks');
         let tasksObj = tasks ? JSON.parse(tasks) : [];
@@ -130,19 +115,26 @@ document.addEventListener('DOMContentLoaded', function() {
         tasksObj.splice(index, 1);
         localStorage.setItem('tasks', JSON.stringify(tasksObj));
         showTasks();
-        toggleButtons();
         console.log(`Task ${index + 1} deleted.`);
     };
 
-    function toggleButtons() {
-        let taskInput = document.getElementById('inpNewTask').value.trim();
-        let buttons = ['btnAdd', 'btnReset', 'btnSort', 'btnCleanup'];
-        buttons.forEach(btnId => document.getElementById(btnId).disabled = !taskInput);
-    }
+    // Display tasks
+    function showTasks() {
+        let tasks = localStorage.getItem('tasks');
+        let tasksObj = tasks ? JSON.parse(tasks) : [];
+        let html = "";
 
-    document.getElementById('inpNewTask').addEventListener('input', function() {
-        toggleButtons();
-    });
+        tasksObj.forEach(function(task, index) {
+            html += `<li class="list-group-item">
+                ${task}
+                <button class="btn btn-danger btn-sm float-right" onclick="deleteTask(${index})">Delete</button>
+            </li>`;
+        });
+
+        document.getElementById('ulTasks').innerHTML = tasksObj.length ? html : '';
+        document.getElementById('messageBox').style.display = tasksObj.length ? 'none' : 'block';
+        console.log("Tasks displayed.");
+    }
 
     const apiKey = '868b78507ac5cd905559fbe39de81e97'; 
     const city = 'Delhi'; 

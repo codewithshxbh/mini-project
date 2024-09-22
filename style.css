@@ -36,25 +36,32 @@ body {
     padding: 15px;
     overflow: hidden;
     background-color: #ffffff;
-    color: white; /* Added white text for consistency */
+    color: white;
 }
 
 /* Notes section */
 #notes-section {
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5); /* Added shadow to the bottom */
     display: flex;
     flex-direction: column;
     height: 500px;
     overflow: auto;
     background-color: black; /* Added black background */
     color: white; /* Added white text */
+    background-image: url('bg.jpg'); /* Add your image path here */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
 }
 
 .notesBox {
     flex: 1;
     overflow-y: auto;
     margin-top: 2px;
-    background-color: rgba(77, 77, 77, 0.347); /* Ensures consistency */
+    background-color: #333; /* Ensures consistency */
     color: rgb(255, 255, 255); /* Ensures consistency */
+    border-radius: 20px;
+    padding-left: 20px; /* Added padding on the left */
+    padding-top: 20px;
 }
 
 textarea {
@@ -67,43 +74,10 @@ textarea {
     color: white; /* Added white text */
 }
 
-/* Tasks section */
-#tasks-section {
-    background-color: rgb(0, 0, 0); /* Black background */
-    color: rgb(0, 0, 0); /* White text */
-    overflow: auto; /* Ensure content is scrollable if necessary */
-    padding: 15px; /* Add padding for better spacing */
-    height: 100%; /* Ensure it fills its grid area */
-    box-sizing: border-box; /* Include padding in the total width/height */
-}
-
-#tasks-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Ensure it fills its container */
-}
-
-.task-item {
-    background-color: #333; /* Darker background for individual tasks for better contrast */
-    color: rgb(0, 0, 0); /* White text color for tasks */
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px; /* Space between tasks */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-}
-
-/* Example of how task items might be styled */
-.task-item h3 {
-    margin: 0;
-}
-
-.task-item p {
-    margin: 0;
-}
-
 
 /* Weather section */
 #weather-section {
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5); /* Added shadow to the bottom */
     background-color: black; /* Added black background */
     color: white; /* Added white text */
 }
@@ -125,6 +99,7 @@ textarea {
     background-color: black; /* Black background */
     color: white; /* White text */
     padding: 30px; /* Adjusted padding for better spacing */
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5); /* Added shadow to the bottom */
 }
 
 /* Datetime section */
@@ -180,29 +155,94 @@ textarea {
 
 .list-group-item {
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #505050;
+    color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
 }
 
 /* Button */
 #myBtn, .buttonHeading {
-    background-color: #227ece;
+    background-color: #8700e7;
     color: #fff;
     padding: 6px 11px;
     border: none;
     border-radius: 5px;
     font-size: 14px;
 }
+/* Tasks section */
+#tasks-section {
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5); /* Added shadow to the bottom */
+    background-color: rgb(0, 0, 0); /* Black background */
+    color: rgb(255, 255, 255); /* White text */
+    overflow: auto; /* Ensure content is scrollable if necessary */
+    padding: 15px; /* Add padding for better spacing */
+    height: 100%; /* Ensure it fills its grid area */
+    box-sizing: border-box; /* Include padding in the total width/height */
+    background-image: url('bg2.jpg'); /* Add your image path here */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+}
+
+#tasks-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure it fills its container */
+}
+
+
+.task-item {
+    background-color: #333; /* Darker background for individual tasks for better contrast */
+    color: rgb(255, 255, 255); /* White text color for tasks */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px; /* Space between tasks */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+/* Button styling */
+#btnAdd, #btnReset, #btnSort, #btnCleanup {
+    width: 180px; /* Reduced width */
+    margin-left: 20px;
+    margin-bottom: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); /* Added shadow */
+}
+.message-box {
+    border: 1px; /* Border for the box */
+    padding: 10px; /* Padding inside the box */
+    margin-top: 10px; /* Space above the box */
+    background-color: #505050;
+    text-align: center; /* Center the text */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Initially hidden */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Added shadow to the bottom */
+}
+
+
+
+
+.task-item h3 {
+    margin: 0;
+}
+
+.task-item p {
+    margin: 0;
+}
+
+
+button {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); /* Added shadow */
+}
 
 .buttonHeading:hover {
-    background-color: #3c8bd1;
+    background-color: #5f0ba0;
 }
 
 #myBtn:hover {
-    background-color: #3686cc;
+    background-color: #5f0ba0;
 }
 
 hr.my-4 {
-    margin: 10px 0;
+    margin: 5px 0;
 }
+
+

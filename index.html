@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quadrant Layout App</title>
+    <title>NoteWise</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -15,69 +15,82 @@
 </head>
 <body>
     <div id="container">
-        <!-- Notes Section -->
-        <div id="notes-section" class="quadrant top-left">
-            <div class="border p-3">
-                <label for="textarea">Add a Note</label>
-                <textarea name="textarea" id="textarea" class="form-control mb-2" cols="30" rows="4"></textarea>
-                <button id="myBtn" class="btn btn-primary">Add Note</button>
+        <div id="container">
+            <!-- Notes Section -->
+            <div id="notes-section" class="quadrant top-left">
+                <div class="border p-3">
+                    <label for="textarea">Add a Note</label>
+                    <textarea name="textarea" id="textarea" class="form-control mb-2" cols="30" rows="4" placeholder="Type Here..."></textarea>
+                    <button id="myBtn" class="btn btn-primary">Add Note</button>
+                </div>
+                
+                <hr class="my-4">
+                <div id="notes" class="notesBox">
+                    <!-- Notes will appear here -->
+                </div>
             </div>
-            
-            <hr class="my-4">
-            <div id="notes" class="notesBox"></div>
+
+        
+            <!-- To-Do List Section -->
+            <div id="tasks-section" class="quadrant top-right">
+                <div class="form-group">
+                    <label for="inpNewTask">New Task</label>
+                    <input type="text" class="form-control" id="inpNewTask" placeholder="Enter the name of the task">
+                    <small id="newTaskHelp" class="form-text text-muted">A short one-line description of your task</small>
+                </div>
+        
+                <div class="row mb-3">
+                    <div class="col-6 p-1">
+                        <button class="btn btn-success col" id="btnAdd">
+                            <i class="fas fa-plus-square"></i> Add
+                        </button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button class="btn btn-danger col" id="btnReset">
+                            <i class="fas fa-backspace"></i> Reset
+                        </button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button class="btn btn-info col" id="btnSort">
+                            <i class="fas fa-sort-amount-down"></i> Sort
+                        </button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button class="btn btn-warning col" id="btnCleanup">
+                            <i class="fas fa-trash-alt"></i> Cleanup
+                        </button>
+                    </div>
+                </div>
+                <div id="messageBox" class="message-box">No tasks to show.</div>
+                <ul class="list-group" id="ulTasks"></ul> <!-- Tasks will appear here -->
+            </div>
+        
+            <!-- Weather Section -->
+            <div id="weather-section" class="quadrant bottom-left">
+                <div class="border p-3">
+                    <div id="weather-container"></div>
+                </div>
+            </div>
+        
+            <!-- Clock Section -->
+            <div id="clock" class="quadrant bottom-right">
+                <div class="datetime">
+                    <div class="date"> 
+                        <span id="dayname">Day</span>, 
+                        <span id="month">Month</span> 
+                        <span id="daynum">00</span>, 
+                        <span id="year">Year</span> 
+                    </div>
+                    <div class="time"> 
+                        <span id="hour">00</span>: 
+                        <span id="minutes">00</span>: 
+                        <span id="seconds">00</span> 
+                        <span id="period">AM</span> 
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- To-Do List Section -->
-        <div id="tasks-section" class="quadrant top-right">
-            <div class="form-group">
-                <label for="inpNewTask">New Task</label>
-                <input type="text" class="form-control" id="inpNewTask" placeholder="Enter the name of the task">
-                <small id="newTaskHelp" class="form-text text-muted">A short one-line description of your task</small>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-6 p-1">
-                    <button class="btn btn-success col" id="btnAdd" disabled>
-                        <i class="fas fa-plus-square"></i> Add
-                    </button>
-                </div>
-                <div class="col-6 p-1">
-                    <button class="btn btn-danger col" id="btnReset" disabled>
-                        <i class="fas fa-backspace"></i> Reset
-                    </button>
-                </div>
-                <div class="col-6 p-1">
-                    <button class="btn btn-info col" id="btnSort" disabled>
-                        <i class="fas fa-sort-amount-down"></i> Sort
-                    </button>
-                </div>
-                <div class="col-6 p-1">
-                    <button class="btn btn-warning col" id="btnCleanup" disabled>
-                        <i class="fas fa-trash-alt"></i> Cleanup
-                    </button>
-                </div>
-            </div>
-
-            <ul class="list-group" id="ulTasks"></ul>
-        </div>
-
-        <!-- Weather Section -->
-        <div id="weather-section" class="quadrant bottom-left">
-            <div class="border p-3">
-                <div id="weather-container">
-                </div>
-            </div>
-        </div>
-
-        <!-- Clock Section -->
-        <div id="clock" class="quadrant bottom-right">
-            <div class="datetime">
-                <div class="date"> <span id="dayname">Day</span>, <span id="month">Month</span> <span id="daynum">00</span>, <span id="year">Year</span> </div>
-                <div class="time"> <span id="hour">00</span>: <span id="minutes">00</span>: <span id="seconds">00</span> <span id="period">AM</span> </div>
-            </div>
-        </div>
-    </div>
-
+        
     <!-- Weather API script -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
